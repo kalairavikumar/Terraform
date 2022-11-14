@@ -12,4 +12,7 @@ resource "aws_subnet" "my_subnets" {
   vpc_id            = aws_vpc.kalai-test.id
   cidr_block        = element(var.subnet_cidr, count.index)
   availability_zone = element(var.subnet_azs, count.index)
+  enable_nat_gateway   = true
+  single_nat_gateway   = true
+  enable_dns_hostnames = true
 }
