@@ -1,11 +1,8 @@
-eks-cluster.tf
-
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "17.24.0"
   cluster_name    = local.cluster_name
   cluster_version = "1.20"
-  private_subnets      = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
   vpc_zone_identifier  = [aws_subnet.my_subnets[3].id, aws_subnet.my_subnets[4].id, aws_subnet.my_subnets[5].id]
 
   workers_group_defaults = {
