@@ -3,7 +3,7 @@ module "eks" {
   version         = "17.24.0"
   cluster_name    = local.cluster_name
   cluster_version = "1.20"
-  vpc_zone_identifier  = [aws_subnet.my_subnets[3].id, aws_subnet.my_subnets[4].id, aws_subnet.my_subnets[5].id]
+  vpc = aws_vpc.kalai-test
 
   workers_group_defaults = {
     root_volume_type = "gp2"
